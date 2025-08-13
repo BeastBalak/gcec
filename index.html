@@ -3,188 +3,278 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GCEC Global Foundation | Best ACCA, BBA, B.Com, MBA College in Jaipur</title>
-  <meta name="description" content="GCEC Global Foundation is a section‑8 non‑profit educational institute focused on transforming the education system in India by introducing a new age entrepreneurial education model." />
-  <link rel="icon" href="/favicon.ico" />
+  <title>GCEC Global Foundation</title>
   <style>
-    :root{
-      --bg:#0b0b0c; --bg2:#121214; --ink:#ffffff; --muted:#a7acb4; --brand:#e50914; --card:#151519; --maxw:1200px; --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.55);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    :root {
+      --bg: #f9faff;
+      --bg-alt: #e6f0ff;
+      --card-bg: #ffffff;
+      --text: #333333;
+      --muted: #666666;
+      --accent: #0056b3;
+      --accent-light: #007bff;
+      --border: #dddddd;
+      --radius: 12px;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      font-family: Arial, sans-serif;
     }
-    *{box-sizing:border-box}
-    body{margin:0; background:linear-gradient(180deg,var(--bg),#060606); color:var(--ink); -webkit-font-smoothing:antialiased;}
-    a{color:inherit}
-    .site{max-width:var(--maxw); margin:auto; padding:20px}
-
-    /* Header */
-    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px); background:rgba(10,10,10,.55); z-index:50;}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 20px}
-    .brand{display:flex; align-items:center; gap:12px}
-    .brand img{width:42px; height:42px; border-radius:50%; object-fit:cover}
-    .brand h1{font-size:18px; margin:0}
-    .links{display:flex; gap:14px; align-items:center}
-    .links a{color:var(--muted); text-decoration:none; font-weight:600; font-size:14px}
-    .links a:hover{color:#fff}
-    .apply{background:var(--brand); color:#fff; padding:9px 14px; border-radius:10px; text-decoration:none; font-weight:800}
-
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin:20px auto}
-    .hero-banner{border-radius:var(--radius); background-size:cover; background-position:center; min-height:360px; box-shadow:var(--shadow); position:relative; overflow:hidden}
-    .hero-banner::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.7))}
-    .hero-copy{display:flex; flex-direction:column; justify-content:center; gap:10px; padding:16px}
-    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:8px}
-    .kpi{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:14px}
-    .kpi .num{font-size:28px; font-weight:900}
-    .muted{color:var(--muted)}
-
-    /* Sections */
-    .section{margin:32px 0}
-    .section h2{margin:0 0 10px}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-    .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:14px; overflow:hidden; box-shadow:var(--shadow)}
-    .card img{width:100%; height:180px; object-fit:cover}
-    .card .pad{padding:14px}
-    .pill{display:inline-block; background:rgba(255,255,255,.08); padding:6px 10px; border-radius:999px; font-size:12px; color:#ddd}
-
-    /* Logos row */
-    .logos{display:grid; grid-template-columns:repeat(6,1fr); gap:12px}
-    .logos img{width:100%; height:64px; object-fit:contain; background:#fff; border-radius:10px; padding:8px}
-
-    /* Footer */
-    footer{margin:36px 0 20px; color:var(--muted); text-align:center; font-size:13px}
-
-    @media (max-width:940px){
-      .hero{grid-template-columns:1fr}
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
     }
-    @media (max-width:720px){
-      .grid{grid-template-columns:1fr}
-      .logos{grid-template-columns:repeat(3,1fr)}
-      .kpis{grid-template-columns:repeat(3,1fr)}
+    header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .site {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .brand h1 {
+      font-size: 20px;
+      margin: 0;
+      color: var(--accent);
+    }
+    .links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    .apply {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      font-weight: 700;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 20px auto;
+    }
+    .hero-banner {
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius);
+      min-height: 360px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 86, 179, 0.25), rgba(0, 86, 179, 0.6));
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .kpi {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+    .kpi .num {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .muted {
+      color: var(--muted);
+    }
+
+    .section {
+      margin: 40px 0;
+    }
+    .section h2 {
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card .pad {
+      padding: 14px;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--bg-alt);
+      color: var(--accent);
+      padding: 6px 10px;
+      font-size: 12px;
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+    }
+
+    .logos {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      align-items: center;
+    }
+    .logos img {
+      width: 100%;
+      height: 64px;
+      object-fit: contain;
+      background: #fff;
+      padding: 8px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      margin: 40px 0 20px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="nav site">
+    <div class="site nav">
       <div class="brand">
-        <!-- Replace with your actual round logo asset -->
-        <img src="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj" alt="GCEC Global" />
-        <div>
-          <h1>GCEC Global Foundation</h1>
-          <div class="muted" style="font-size:12px">Jaipur • Section‑8 Non‑Profit</div>
-        </div>
+        <img src="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj" alt="GCEC Global Logo">
+        <h1>GCEC Global Foundation</h1>
       </div>
       <nav class="links">
-        <a href="#courses">All Courses</a>
-        <a href="#students">Students</a>
+        <a href="#courses">Courses</a>
+        <a href="#students">Life at GCEC</a>
         <a href="#mentors">Mentors</a>
         <a href="#about">About</a>
         <a href="#awards">Awards</a>
-        <a href="#collab">Collaborators</a>
-        <a href="#recruiters">Recruiters</a>
-        <a class="apply" href="https://www.gcecglobal.com/" target="_blank" rel="noopener">Apply</a>
+        <a href="#collab">Partners</a>
+        <a class="apply" href="https://www.gcecglobal.com/">Apply</a>
       </nav>
     </div>
   </header>
 
   <main class="site">
-    <!-- HERO -->
     <section class="hero">
-      <div class="hero-banner" style="background-image:url('https://www.gcecglobal.com/wp-content/uploads/2024/09/GCEC-hero-fallback.jpg');">
-        <!-- If you have a specific hero: replace the URL above with your banner image URL -->
-      </div>
+      <div class="hero-banner" style="background-image:url('https://www.gcecglobal.com/wp-content/uploads/2024/09/GCEC-hero-fallback.jpg');"></div>
       <div class="hero-copy">
-        <h2>Transforming Education with New‑Age Entrepreneurial Learning</h2>
-        <p class="muted">GCEC Global Foundation focuses on practical, industry‑integrated programs (ACCA‑UK, CMA‑US, CFA‑US, CFP, EP) with mentors from startups and global finance. Affiliated collaborations with leading universities.</p>
+        <h2>Transforming Education with Entrepreneurial Learning</h2>
+        <p class="muted">Practical, industry-integrated programs (ACCA-UK, BBA, B.Com, MBA) led by startup and finance mentors.</p>
         <div class="kpis">
-          <div class="kpi"><div class="num">#AIR1</div><div class="muted">ACCA (last 4 years)</div></div>
-          <div class="kpi"><div class="num">1000+</div><div class="muted">Students mentored</div></div>
-          <div class="kpi"><div class="num">80+</div><div class="muted">Startups incubated</div></div>
+          <div class="kpi"><div class="num">#AIR1</div><div class="muted">ACCA (last 4 yrs)</div></div>
+          <div class="kpi"><div class="num">1000+</div><div class="muted">Students Mentored</div></div>
+          <div class="kpi"><div class="num">80+</div><div class="muted">Startups Incubated</div></div>
         </div>
       </div>
     </section>
 
-    <!-- COURSES -->
     <section id="courses" class="section">
       <h2>Our Courses</h2>
-      <p class="muted">Browse the graduate and undergraduate degrees offered by GCEC and learn more about admissions requirements, curriculum, and opportunities.</p>
       <div class="grid">
-        <article class="card">
-          <img src="https://www.gcecglobal.com/wp-content/uploads/2023/10/bba-entrepreneurship.jpg" alt="BBA in Entrepreneurship/Startup & Family Business">
-          <div class="pad">
-            <span class="pill">BBA</span>
-            <h3>BBA in Entrepreneurship / Startup & Family Business</h3>
-            <p class="muted">Hands‑on program integrating practical training with startup projects.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToPKMOBwnl6YCUTDLmzQ93c7bWxy6gw32aaw&s" alt="BBA in Financial Markets">
-          <div class="pad">
-            <span class="pill">BBA</span>
-            <h3>BBA in Financial Markets (CFA‑Level‑1) / NSE</h3>
-            <p class="muted">Focus on markets, valuation and certifications mapped to CFA L1.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://www.gcecglobal.com/wp-content/uploads/2023/10/bcom-hons.jpg" alt="B.Com (Hons)">
-          <div class="pad">
-            <span class="pill">B.Com</span>
-            <h3>B.Com (Hons)</h3>
-            <p class="muted">Contemporary commerce curriculum with industry application.</p>
-          </div>
-        </article>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2023/10/bba-entrepreneurship.jpg" alt="BBA Entrepreneurship">
+          <div class="pad"><span class="pill">BBA</span><h3>BBA in Entrepreneurship</h3><p class="muted">Hands-on startup-focused learning.</p></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2023/10/bba-financial-markets.jpg" alt="BBA Financial Markets">
+          <div class="pad"><span class="pill">BBA</span><h3>BBA in Financial Markets</h3><p class="muted">CFA-L1 aligned curriculum.</p></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2023/10/bcom-hons.jpg" alt="B.Com Hons">
+          <div class="pad"><span class="pill">B.Com</span><h3>B.Com (Hons)</h3><p class="muted">Contemporary commerce curriculum.</p></div></div>
       </div>
     </section>
 
-    <!-- STUDENTS / GALLERY PREVIEW -->
     <section id="students" class="section">
       <h2>Life at GCEC</h2>
-      <p class="muted">Peek into GCEC — hackathons, music sessions, canteen conversations, trips and more.</p>
       <div class="grid">
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/06/gallery-1.jpg" alt="Gallery 1"></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/06/gallery-2.jpg" alt="Gallery 2"></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/06/gallery-3.jpg" alt="Gallery 3"></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/06/gallery-1.jpg" alt="Gallery"><div class="pad"></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/06/gallery-2.jpg" alt="Gallery"><div class="pad"></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/06/gallery-3.jpg" alt="Gallery"><div class="pad"></div></div>
       </div>
     </section>
 
-    <!-- MENTORS -->
     <section id="mentors" class="section">
       <h2>Mentors & Guides</h2>
       <div class="grid">
-        <article class="card">
-          <img src="https://www.gcecglobal.com/wp-content/uploads/2024/04/mentor-1.jpg" alt="Mentor 1">
-          <div class="pad"><h3>Industry Experts</h3><p class="muted">Seasoned founders, investors, CAs and analysts mentor student cohorts.</p></div>
-        </article>
-        <article class="card">
-          <img src="https://www.gcecglobal.com/wp-content/uploads/2024/04/mentor-2.jpg" alt="Mentor 2">
-          <div class="pad"><h3>Global Network</h3><p class="muted">Collaborations and guest lectures from global ecosystems.</p></div>
-        </article>
-        <article class="card">
-          <img src="https://www.gcecglobal.com/wp-content/uploads/2024/04/mentor-3.jpg" alt="Mentor 3">
-          <div class="pad"><h3>Personalised Mentoring</h3><p class="muted">One‑on‑one guidance across projects, competitions and placements.</p></div>
-        </article>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/04/mentor-1.jpg" alt="Mentor"><div class="pad"><h3>Industry Experts</h3><p class="muted">Founders & finance mentors.</p></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/04/mentor-2.jpg" alt="Mentor"><div class="pad"><h3>Global Network</h3><p class="muted">Guest lectures worldwide.</p></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2024/04/mentor-3.jpg" alt="Mentor"><div class="pad"><h3>Personalised Mentoring</h3><p class="muted">1-on-1 project guidance.</p></div></div>
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="section">
-      <h2>About GCEC Global Foundation</h2>
-      <p class="muted">A Section‑8 non‑profit educational institute, GCEC is focused on transforming India’s education system by introducing new‑age entrepreneurial learning. We integrate three years of practical training at UG level, an open‑book curriculum, and international study patterns.</p>
+      <h2>About Us</h2>
+      <p class="muted">A Section-8 non-profit driving practical, entrepreneurial UG and PG programs through startup and finance mentors.</p>
     </section>
 
-    <!-- AWARDS -->
     <section id="awards" class="section">
       <h2>Awards & Achievements</h2>
       <div class="grid">
-        <article class="card"><div class="pad"><h3>Best Commerce College in Rajasthan</h3><p class="muted">Recognition for innovation in UG program design and outcomes.</p></div></article>
-        <article class="card"><div class="pad"><h3>ACCA Results</h3><p class="muted">Consistent All India Rank 1 streak across recent years.</p></div></article>
-        <article class="card"><div class="pad"><h3>Startup Incubation</h3><p class="muted">Dozens of student‑led startups incubated and showcased.</p></div></article>
+        <div class="card"><div class="pad"><h3>Best Commerce College in Rajasthan</h3></div></div>
+        <div class="card"><div class="pad"><h3>ACCA All India Rank 1</h3></div></div>
+        <div class="card"><div class="pad"><h3>Startup Incubation</h3></div></div>
       </div>
-      <p class="muted" style="margin-top:10px; font-size:12px">*These are the achievements and awards from our sister concern Aadita Innovative Consultants Pvt. Ltd.</p>
+      <p class="muted" style="font-size:12px;">*Achievements via Aadita Innovative Consultants Pvt. Ltd.</p>
     </section>
 
-    <!-- COLLABORATORS / RECRUITERS LOGOS -->
     <section id="collab" class="section">
       <h2>Collaborators & Partners</h2>
       <div class="logos">
@@ -200,24 +290,24 @@
     <section id="recruiters" class="section">
       <h2>Recruiters</h2>
       <div class="grid">
-        <article class="card"><div class="pad"><h3>Top Startups</h3><p class="muted">Early‑stage and growth‑stage roles in marketing, ops, finance.</p></div></article>
-        <article class="card"><div class="pad"><h3>Consulting & Finance</h3><p class="muted">Analyst and consulting tracks across finance and strategy.</p></div></article>
-        <article class="card"><div class="pad"><h3>Family Businesses</h3><p class="muted">Roles blending operations, growth and digital transformation.</p></div></article>
+        <div class="card"><div class="pad"><h3>Top Startups</h3><p class="muted">Roles in marketing, ops, finance.</p></div></div>
+        <div class="card"><div class="pad"><h3>Consulting & Finance</h3><p class="muted">Analyst & consulting tracks.</p></div></div>
+        <div class="card"><div class="pad"><h3>Family Businesses</h3><p class="muted">Growth & transformation roles.</p></div></div>
       </div>
     </section>
 
-    <!-- CONTACT / CTA -->
     <section class="section">
       <h2>Ready to Apply?</h2>
-      <p class="muted">Applications are open online. Click below to explore programs and start your application.</p>
-      <p><a class="apply" href="https://www.gcecglobal.com/" target="_blank" rel="noopener">Explore & Apply</a></p>
+      <p class="muted">Applications are now open online. Explore programs and start your application today.</p>
+      <a class="apply" href="https://www.gcecglobal.com/">Explore & Apply</a>
     </section>
+
   </main>
 
   <footer>
     <div class="site">
-      <div>Copyright © 2025 GCEC Global Foundation</div>
-      <div class="muted" style="margin-top:6px; font-size:12px">Maintained by GCEC Global • <a href="https://www.gcecglobal.com/resources/" style="color:#a7acb4">Resources</a> • <a href="https://www.gcecglobal.com/awards/" style="color:#a7acb4">Awards</a></div>
+      <div>&copy; 2025 GCEC Global Foundation</div>
+      <div class="muted" style="margin-top:6px; font-size:12px;">Maintained by GCEC Global</div>
     </div>
   </footer>
 </body>
