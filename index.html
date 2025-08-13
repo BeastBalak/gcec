@@ -2,326 +2,430 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>True Education — White & Blue Theme Clone</title>
-  <link rel="icon" href="https://media.licdn.com/dms/image/v2/D4D0BAQE6gF_ObCtUeA/company-logo_200_200/company-logo_200_200/0/1690029986181/gcecglobal_logo">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Academy — White & Blue Theme (Animated)</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --accent: #007bff;
+    :root{
+      --accent: #007bff;        /* primary blue */
+      --accent-2: #0056d6;
       --muted: #6b7280;
       --bg: #ffffff;
       --card: #ffffff;
-      --text: #111111;
-    }
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .site {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-    header.nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .brand img {
-      width: 56px;
-      height: 56px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-    .brand h1 {
-      font-size: 20px;
-      color: var(--accent);
-    }
-    nav.links {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-    nav.links a {
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-weight: 600;
-      color: var(--muted);
-      transition: background .2s, color .2s;
-    }
-    nav.links a:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-    a.apply {
-      background: var(--accent);
-      color: #fff;
+      --glass: rgba(255,255,255,0.7);
+      --shadow: 0 10px 30px rgba(13, 61, 150, 0.08);
+      --round: 14px;
+      --container: 1200px;
+      --speed: .7s;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      margin: 40px 0;
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:28px 20px;
     }
-    .hero-banner {
-      background: url("https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png") center/contain no-repeat;
-      height: 240px;
-      border-radius: 12px;
-    }
-    .hero-copy h2 {
-      font-size: 2rem;
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-    .hero-copy p {
-      color: var(--muted);
-    }
-    .kpis {
-      display: flex;
-      gap: 16px;
-      margin: 16px 0;
-    }
-    .kpi {
-      background: var(--card);
-      box-shadow: 0 4px 12px rgba(15,23,42,0.05);
-      padding: 12px;
-      border-radius: 8px;
-      text-align: center;
-      flex: 1;
-    }
-    .kpi .num {
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .kpi .label {
-      color: var(--muted);
-      font-size: .9rem;
+    a{color:inherit;text-decoration:none}
+
+    /* Container */
+    .site{
+      max-width:var(--container);
+      margin: 0 auto;
+      padding: 18px;
     }
 
-    .section {
-      margin: 40px 0;
+    /* Header */
+    header.site-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 8px;
+      position:sticky;
+      top:12px;
+      z-index:120;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.35));
+      border-radius:12px;
+      box-shadow: 0 6px 18px rgba(10,20,50,0.04);
     }
-    .section h2 {
-      margin-bottom: 12px;
-      color: var(--accent);
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
     }
-    .grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    .logo{
+      width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow: 0 6px 18px rgba(0,123,255,0.12);
     }
-    .card {
-      background: var(--card);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
-      display: flex;
-      flex-direction: column;
+    .logo svg{width:34px;height:34px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.08))}
+    .brand-title{font-weight:700;color:var(--accent);font-size:1.02rem;letter-spacing:0.2px}
+    nav.main-nav{display:flex;gap:10px;align-items:center}
+    nav.main-nav a{
+      padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);position:relative;
+      transition: all .18s ease;
     }
-    .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
+    nav.main-nav a:hover{color:var(--accent)}
+    nav.main-nav a::after{
+      content:"";height:3px;background:var(--accent);position:absolute;left:12px;right:12px;bottom:-8px;border-radius:6px;transform:scaleX(0);transform-origin:left center;transition:transform .28s cubic-bezier(.2,.9,.2,1);
     }
-    .card .pad {
-      padding: 12px;
+    nav.main-nav a:hover::after{transform:scaleX(1)}
+
+    .cta{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#fff;padding:9px 14px;border-radius:12px;font-weight:700;box-shadow: 0 12px 30px rgba(0,123,255,0.14);
+      transform:translateY(0);transition:transform .18s ease, box-shadow .18s;
     }
-    .pill {
-      display: inline-block;
-      background: #e7f1ff;
-      color: var(--accent);
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 6px;
+    .cta:hover{transform:translateY(-3px);box-shadow: 0 20px 40px rgba(0,123,255,0.18)}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 520px;
+      gap:28px;
+      align-items:center;
+      margin:28px 0 40px;
+      position:relative;
     }
-    h3 {
-      margin: 8px 0;
-      color: var(--text);
+    .hero-left{
+      padding:18px 8px;
     }
-    p.muted {
-      color: var(--muted);
-      font-size: .95rem;
+    .eyebrow{
+      display:inline-block;padding:6px 10px;border-radius:999px;background:#eef6ff;color:var(--accent);font-weight:700;font-size:12px;margin-bottom:12px;
+    }
+    .hero-title{
+      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-weight:700;
+      line-height:1.03;
+      margin:8px 0 12px;
+      color:var(--accent-2);
+      letter-spacing:-0.6px;
+    }
+    .hero-sub{
+      color:var(--muted);
+      max-width:66ch;
+      margin-bottom:18px;
     }
 
-    .toc {
-      margin-top: 12px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+    .hero-cta{
+      display:flex;gap:12px;align-items:center;margin-top:8px;
     }
-    .toc a {
-      background: #f5faff;
-      border: 1px solid #e0f0ff;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: .9rem;
-      color: var(--accent);
+    .btn {
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:var(--shadow);border:none;cursor:pointer;transition:transform .18s, box-shadow .18s;
+    }
+    .btn.secondary{
+      background:transparent;border:1px solid rgba(0,123,255,0.12);color:var(--accent);font-weight:600;padding:10px 14px;
+    }
+    .btn:active{transform:translateY(1px)}
+
+    .hero-kpis{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .kpi{
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      padding:12px 14px;border-radius:12px;box-shadow:0 8px 20px rgba(12,34,80,0.04);min-width:120px;text-align:center;
+    }
+    .kpi .num{font-weight:800;font-size:1.18rem;color:var(--accent-2)}
+    .kpi .lab{color:var(--muted);font-size:.95rem}
+
+    /* Hero art (right) */
+    .hero-right{
+      height:360px;border-radius:18px;padding:18px;background:linear-gradient(180deg,#f9fdff, #f6fbff);
+      box-shadow: 0 10px 40px rgba(10,30,80,0.06);position:relative;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;
+    }
+    /* floating decorative blobs */
+    .blob{
+      position:absolute;border-radius:999px;filter:blur(36px);opacity:.16;transform:translate3d(0,0,0);
+    }
+    .blob.b1{width:360px;height:360px;background:linear-gradient(135deg,var(--accent),var(--accent-2));left:-80px;top:-100px;opacity:.12}
+    .blob.b2{width:220px;height:220px;background:linear-gradient(135deg,#00b3ff,#3fa7ff);right:-60px;bottom:-60px;opacity:.08}
+    .mock{
+      width:86%;height:76%;border-radius:12px;background:linear-gradient(180deg,#ffffff,#f1f8ff);display:flex;align-items:center;justify-content:center;border:1px solid rgba(5,80,200,0.04);
+      transform:translateY(0);box-shadow: 0 8px 30px rgba(15,30,80,0.06);
+    }
+    .mock svg{width:70%;height:auto;opacity:.95}
+
+    /* Sections */
+    section{padding:28px 0}
+    .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .section-head h2{color:var(--accent-2);font-size:1.2rem}
+    .section-head p{color:var(--muted);font-size:.95rem;margin-left:6px}
+
+    .grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;
+    }
+    .card{
+      background: linear-gradient(180deg,#ffffff,#fbfdff);
+      border-radius:var(--round);overflow:hidden;padding:0;border:1px solid rgba(10,30,80,0.03);
+      box-shadow: 0 12px 30px rgba(12,34,80,0.04);
+      transform:translateY(18px) scale(.995);
+      transition: transform .42s cubic-bezier(.16,.9,.3,1), box-shadow .28s;
+      will-change:transform;
+      position:relative;
+      min-height:140px;
+      display:flex;flex-direction:column;
+    }
+    .card:hover{transform:translateY(-8px) scale(1.01);box-shadow: 0 22px 48px rgba(10,30,80,0.08)}
+    .card .card-media{
+      height:120px;background:linear-gradient(135deg,#f7fbff,#eef7ff);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(10,30,80,0.03)
+    }
+    .card .card-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef6ff;color:var(--accent-2);font-weight:700;font-size:12px}
+
+    /* subtle floating animation for cards */
+    .card.floating{animation:floating 8s ease-in-out infinite}
+    @keyframes floating{
+      0%{transform:translateY(0) rotate(0deg)}
+      50%{transform:translateY(-6px) rotate(-0.2deg)}
+      100%{transform:translateY(0) rotate(0deg)}
     }
 
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      font-size: 14px;
-      color: var(--muted);
-    }
+    /* reveal animations (intersection observer toggles .inview) */
+    .animate { opacity:0; transform: translateY(18px) scale(.995); transition: transform var(--speed) cubic-bezier(.2,.95,.25,1), opacity var(--speed) ease; will-change:transform,opacity; }
+    .animate.inview{ opacity:1; transform: translateY(0) scale(1); }
+    .stagger > * { transition-delay: calc(var(--idx) * 80ms); }
 
-    @media (max-width: 800px) {
-      nav.links { display: none; }
-      .hero { grid-template-columns: 1fr; }
+    /* footer */
+    footer.site-footer{margin-top:40px;padding:20px;border-radius:12px;text-align:center;color:var(--muted);font-size:.95rem;background:linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.00));}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .hero-right{height:300px}
+      header.site-header{padding:10px}
+    }
+    @media (max-width:520px){
+      .brand-title{display:none}
+      .logo{width:48px;height:48px}
+      .hero-right{height:240px}
+      .card{min-height:120px}
     }
   </style>
 </head>
 <body>
+  <div class="site">
 
-  <header class="nav">
-    <div class="site nav-content">
-      <div class="brand">
-        <a href="#home"><img src="https://media.licdn.com/dms/image/v2/D4D0BAQE6gF_ObCtUeA/company-logo_200_200/company-logo_200_200/0/1690029986181/gcecglobal_logo" alt="Logo"></a>
-        <h1>True Education</h1>
+    <header class="site-header animate" data-anim>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="logo" aria-hidden="true">
+          <!-- Inline abstract mark so there's no external branding -->
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="8" width="40" height="32" rx="6" fill="white" opacity="0.06"/>
+            <path d="M10 16c6-3 18-3 26 0v14c-8-3-20-3-26 0V16z" fill="#fff" opacity="0.12"/>
+            <path d="M14 18v12M24 16v14M34 18v12" stroke="white" stroke-opacity="0.95" stroke-linecap="round" stroke-width="2.2"/>
+          </svg>
+        </div>
+        <div class="brand-title">Academy</div>
       </div>
-      <nav class="links">
+
+      <nav class="main-nav" role="navigation" aria-label="Main">
         <a href="#courses">Courses</a>
         <a href="#life">Life</a>
         <a href="#mentors">Mentors</a>
         <a href="#about">About</a>
         <a href="#awards">Awards</a>
-        <a class="apply" href="https://true-education.org/">Visit</a>
+        <a class="cta" href="#contact">Apply</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="site">
-    <section id="home" class="hero">
-      <div class="hero-banner"></div>
-      <div class="hero-copy">
-        <h2>Transforming Education with Entrepreneurial Learning</h2>
-        <p class="muted">Practical, industry-integrated programs (ACCA-UK, BBA, B.Com, MBA) led by startup and finance mentors.</p>
-        <div class="kpis">
-          <div class="kpi"><div class="num">40+</div><div class="label">Recruiters</div></div>
-          <div class="kpi"><div class="num">50+</div><div class="label">All India ranks in ACCA</div></div>
-          <div class="kpi"><div class="num">100%</div><div class="label">Placement & internship (6 yrs)</div></div>
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-left">
+        <div class="eyebrow animate" data-anim style="--idx:0">New intake • Industry-led</div>
+        <h1 class="hero-title animate" data-anim style="--idx:1">Entrepreneurial learning, industry exposure — elegantly delivered.</h1>
+        <p class="hero-sub animate" data-anim style="--idx:2">
+          Career-focused undergraduate and professional pathways with intensive practical labs, incubation support, and mentor-led projects designed to build operators and founders.
+        </p>
+
+        <div class="hero-cta animate" data-anim style="--idx:3">
+          <button class="btn" onclick="document.location='#courses'">Explore Courses</button>
+          <button class="btn secondary" onclick="document.location='#about'">Why choose us</button>
         </div>
-        <div class="toc">
-          <a href="#courses">Courses</a>
-          <a href="#mentors">Mentors</a>
-          <a href="#life">Life at Campus</a>
-          <a href="#about">About</a>
+
+        <div class="hero-kpis animate" data-anim style="--idx:4">
+          <div class="kpi">
+            <div class="num">40+</div>
+            <div class="lab">Recruiters</div>
+          </div>
+          <div class="kpi">
+            <div class="num">50+</div>
+            <div class="lab">Top Exam Ranks</div>
+          </div>
+          <div class="kpi">
+            <div class="num">100%</div>
+            <div class="lab">Placement & Internship</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right animate" data-anim style="--idx:1">
+        <div class="blob b1" aria-hidden="true"></div>
+        <div class="blob b2" aria-hidden="true"></div>
+
+        <div class="mock" aria-hidden="true">
+          <!-- stylish illustrative mockup (inline SVG) -->
+          <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#eaf6ff"/></linearGradient>
+            </defs>
+            <rect x="12" y="12" rx="18" width="776" height="496" fill="url(#g1)" stroke="rgba(5,80,200,0.06)"/>
+            <g transform="translate(48,48)">
+              <rect width="320" height="44" rx="8" fill="#f8fbff"/>
+              <rect y="68" width="560" height="18" rx="8" fill="#fff"/>
+              <rect y="100" width="520" height="160" rx="10" fill="#fff"/>
+              <circle cx="540" cy="36" r="26" fill="#e7f1ff"/>
+              <rect x="360" y="12" width="160" height="36" rx="8" fill="#eef6ff"/>
+              <rect y="280" width="520" height="12" rx="6" fill="#eef6ff"/>
+            </g>
+          </svg>
         </div>
       </div>
     </section>
 
-    <section id="courses" class="section">
-      <h2>Our Courses</h2>
+    <!-- COURSES -->
+    <section id="courses" class="animate" data-anim style="--idx:0">
+      <div class="section-head">
+        <h2>Programs & Courses</h2>
+        <p>Undergraduate, postgraduate and short professional programmes with practical labs.</p>
+      </div>
+
+      <div class="grid stagger">
+        <article class="card floating animate" data-anim style="--idx:1">
+          <div class="card-media" aria-hidden="true">
+            <!-- small abstract illustration -->
+            <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="4" y="10" rx="8" width="112" height="60" fill="url(#g1)"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="pill">BBA</span>
+            <h3 style="margin-top:6px">Startup & Family Business</h3>
+            <p class="muted">Accelerator-style incubation + practical projects that help founders build and scale.</p>
+          </div>
+        </article>
+
+        <article class="card floating animate" data-anim style="--idx:2">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <span class="pill">BBA</span>
+            <h3>BBA — Financial Markets</h3>
+            <p class="muted">Market labs, NSE desk access, and CFA-aligned modules for real trading experience.</p>
+          </div>
+        </article>
+
+        <article class="card animate" data-anim style="--idx:3">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <span class="pill">BBA</span>
+            <h3>Business Intelligence & Analytics</h3>
+            <p class="muted">Analytics, data storytelling and industry projects with real datasets and dashboards.</p>
+          </div>
+        </article>
+
+        <article class="card animate" data-anim style="--idx:4">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <span class="pill">B.Com</span>
+            <h3>B.Com — Regular & Professional</h3>
+            <p class="muted">Flexible pathways with professional course integrations and internship placements.</p>
+          </div>
+        </article>
+
+        <article class="card animate" data-anim style="--idx:5">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <span class="pill">MBA</span>
+            <h3>MBA — Entrepreneurship & Finance</h3>
+            <p class="muted">Dual specialisations, mentor networks and capstone startup projects.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LIFE -->
+    <section id="life" class="animate" data-anim style="--idx:1">
+      <div class="section-head">
+        <h2>Life on Campus</h2>
+        <p>Clubs, councils and events that build leadership and a founder mindset.</p>
+      </div>
+
       <div class="grid">
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="">
-          <div class="pad"><span class="pill">BBA</span><h3>BBA Startup & Family Business</h3><p class="muted">Entrepreneurship, incubations and practical training.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="">
-          <div class="pad"><span class="pill">BBA</span><h3>BBA Financial Markets (CFA - Level 1&2)</h3><p class="muted">NSE-linked finance programmes.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="">
-          <div class="pad"><span class="pill">BBA</span><h3>BBA Business Intelligence & Analytics</h3><p class="muted">CMA-US aligned analytics curriculum.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="">
-          <div class="pad"><span class="pill">B.Com</span><h3>B.Com Regular & Professional Tracks</h3><p class="muted">International Business (ACCA-UK), CA/CMA pathways.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="">
-          <div class="pad"><span class="pill">MBA</span><h3>MBA Entrepreneurship & International Finance</h3><p class="muted">Dual specialisation with professional integrations.</p></div></div>
+        <div class="card animate" data-anim style="--idx:1">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <h3>Student Council & Activities</h3>
+            <p class="muted">Events, leadership programmes and community projects run by students.</p>
+          </div>
+        </div>
+
+        <div class="card animate" data-anim style="--idx:2">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <h3>Campus Labs & Gallery</h3>
+            <p class="muted">Modern classrooms, innovation labs and spaces for collaboration.</p>
+          </div>
+        </div>
+
+        <div class="card animate" data-anim style="--idx:3">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <h3>Incubation & Startups</h3>
+            <p class="muted">In-house incubation with mentor hours, seed support and investor connects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENTORS -->
+    <section id="mentors" class="animate" data-anim style="--idx:2">
+      <div class="section-head">
+        <h2>Mentors & Board</h2>
+        <p>Industry leaders, founders and academicians who guide projects and curricula.</p>
       </div>
 
-      <h3 style="margin:24px 0 12px;">Short Courses & Labs</h3>
       <div class="grid">
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Finlab for Students & Adults</h3><p class="muted">Hands-on trading and finance labs.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Online Courses & Tallex</h3><p class="muted">Self-paced and instructor-led programmes.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>ACCA / CMA / CFA Tuitions</h3><p class="muted">Professional exam coaching.</p></div></div>
+        <div class="card animate" data-anim style="--idx:1">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <h3>Industry Mentors</h3>
+            <p class="muted">Founders, operators and senior executives who deliver masterclasses.</p>
+          </div>
+        </div>
+
+        <div class="card animate" data-anim style="--idx:2">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <h3>Advisory Board</h3>
+            <p class="muted">Experienced advisors from startups, VC and corporates.</p>
+          </div>
+        </div>
+
+        <div class="card animate" data-anim style="--idx:3">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <h3>Guest Speakers</h3>
+            <p class="muted">Regular speaker series featuring operators, investors and educators.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="life" class="section">
-      <h2>Life at Campus</h2>
-      <p class="muted">Campus life blends academics, startups, and practical exposure — activities, councils, and events that build founder mindset.</p>
-      <div class="grid" style="margin-top:16px">
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Student Council & Activities</h3><p class="muted">Clubs, events and leadership programs.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Campus Gallery</h3><p class="muted">Classrooms, labs and event highlights.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com	wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Startup Incubation</h3><p class="muted">In-house startups supported by partners and mentors.</p></div></div>
+    <!-- ABOUT -->
+    <section id="about" class="animate" data-anim style="--idx:3">
+      <div class="section-head">
+        <h2>About the Institute</h2>
+        <p>We integrate professional certifications with degree programmes and practical exposure.</p>
       </div>
 
-      <h3 style="margin:24px 0 12px;">Placements & Achievers</h3>
-      <div class="grid">
-        <div class="card"><img src="https://www.gcecglobal.com	wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Placements</h3><p class="muted">Strong recruiter network across startups & finance.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12	GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Achievers</h3><p class="muted">ACCA & CMA national achievers, Ivy League admits and more.</p></div></div>
-      </div>
-    </section>
-
-    <section id="mentors" class="section">
-      <h2>Mentors & Advisory Board</h2>
-      <p class="muted">Founders, CAs, ex-bankers and industry leaders support our academic ecosystem.</p>
-      <div class="grid" style="margin-top:16px">
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Industry Mentors</h3><p class="muted">Founders, investors and operators.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12	GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Advisory Board</h3><p class="muted">Forbes 30U30, VC directors & senior leaders.</p></div></div>
-        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12	GCEC-Global-Foundation-Logos-Final-02.png" alt=""><div class="pad"><h3>Guest Speakers</h3><p class="muted">600+ guest speakers over the years.</p></div></div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <h2>About</h2>
-      <p class="muted">Global Center for Entrepreneurship (GCEC) integrates professional courses with UG & PG programmes. As a Section-8 non-profit, we focus on entrepreneurship, incubation and real-world exposure.</p>
-      <div style="margin:16px 0 12px"></div>
-      <h3>Infrastructure & Partners</h3>
-      <p class="muted">Smart classrooms, innovation labs, tie-ups with AWS, HubSpot, IBM, Coursera, GitHub and more.</p>
-    </section>
-
-    <section id="awards" class="section">
-      <h2>Awards & Achievements</h2>
-      <div class="grid">
-        <div class="card"><div class="pad"><h3>ACCA All India Rank Holders</h3><p class="muted">Multiple national rank-1s and achievers.</p></div></div>
-        <div class="card"><div class="pad"><h3>Startup Awards</h3><p class="muted">Prizes at ACIC VGU, SRCC and industry recognition.</p></div></div>
-        <div class="card"><div class="pad"><h3>International Admissions</h3><p class="muted">Students admitted to USC, UCL, Bristol and more.</p></div></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Differentiators</h2>
-      <ul class="muted">
-        <li>3–4 years of mandatory practical training</li>
-        <li>Curriculum inspired by Harvard, Babson, Y Combinator, ACCA, CMA, CFA</li>
-        <li>Innovation Lab, Incubation Centre & NSE Trading desk</li>
-        <li>World-class infrastructure and mentorship</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <div class="site">
-      &copy; 2025 True Education
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if(target) target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
-</body>
-</html>
+      <div style="display:grid;gap:12px">
+        <p class="muted">A modern academy focused on entrepreneurship, professional pathways and hands-on experience. Curriculum blends academic rigour with industry relevance, incubation support and lifelong ment
