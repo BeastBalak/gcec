@@ -1,93 +1,298 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GCEC Global Foundation</title>
   <style>
     :root {
       --bg: #f9faff;
-      --card-bg: #fff;
+      --bg-alt: #e6f0ff;
+      --card-bg: #ffffff;
+      --text: #333333;
+      --muted: #666666;
       --accent: #0056b3;
-      --muted: #666;
-      --text: #333;
-      --radius:12px;
+      --accent-light: #007bff;
+      --border: #dddddd;
+      --radius: 12px;
       --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      font-family: Arial, sans-serif;
     }
-    * { box-sizing: border-box; scroll-behavior: smooth; }
-    body { margin:0; background:var(--bg); color:var(--text); font-family:Arial,sans-serif; }
-    header { background: #fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
-    .site { max-width:1200px; margin:auto; padding:20px; }
-    .nav { display:flex; align-items:center; justify-content:space-between; }
-    .brand h1 { color:var(--accent); margin:0; }
-    .links a { color:var(--accent); text-decoration:none; padding:5px; }
-    .links a:hover { text-decoration:underline; }
-    .hero { display:flex; gap:20px; margin:20px 0; opacity:0; transform:translateY(20px); }
-    .hero.visible { opacity:1; transform:translateY(0); transition:opacity .8s, transform .8s; }
-    .hero-banner { flex:1; background:url('https://www.gcecglobal.com/wp-content/uploads/2024/09/GCEC-hero-fallback.jpg') center/cover no-repeat; border-radius:var(--radius); min-height:360px; box-shadow:var(--shadow); }
-    .hero-copy { flex:1; display:flex; flex-direction:column; justify-content:center; gap:10px; }
-    .kpis { display:flex; gap:10px; margin-top:10px; }
-    .kpi { background:var(--card-bg); padding:12px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center; cursor:default; transition:transform .3s; }
-    .kpi:hover { transform:scale(1.03); }
-    .section { margin:40px 0; opacity:0; transform:translateY(20px); }
-    .section.visible { opacity:1; transform:translateY(0); transition:opacity .8s, transform .8s; }
-    .grid { display:flex; flex-wrap:wrap; gap:18px; }
-    .card { background:var(--card-bg); border-radius:var(--radius); overflow:hidden; flex:1 1 calc(33% - 18px); box-shadow:var(--shadow); transform:translateY(20px); opacity:0; transition:transform .6s, opacity .6s; }
-    .card.visible { transform:translateY(0); opacity:1; }
-    .card img { width:100%; height:180px; object-fit:cover; }
-    .card .pad { padding:14px; }
-    .apply { background:var(--accent); color:#fff; padding:8px 14px; border-radius:var(--radius); text-decoration:none; display:inline-block; }
-    @media(max-width:800px){ .card { flex:1 1 100%; } }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .site {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .brand h1 {
+      font-size: 20px;
+      margin: 0;
+      color: var(--accent);
+    }
+    .links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .links a:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+    .apply {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      transition: background 0.3s ease;
+    }
+    .apply:hover {
+      background: var(--accent-light);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeUp 0.8s ease forwards;
+    }
+    img, .hero-banner {
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 20px auto;
+    }
+    .hero-banner {
+      background-image: url('https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius);
+      min-height: 360px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 86, 179, 0.25), rgba(0, 86, 179, 0.6));
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .kpi {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+    .kpi .num {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .muted {
+      color: var(--muted);
+    }
+
+    .section {
+      margin: 40px 0;
+    }
+    .section h2 {
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card .pad {
+      padding: 14px;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--bg-alt);
+      color: var(--accent);
+      padding: 6px 10px;
+      font-size: 12px;
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+    }
+
+    .logos {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      align-items: center;
+    }
+    .logos img {
+      width: 100%;
+      height: 64px;
+      object-fit: contain;
+      background: #fff;
+      padding: 8px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      margin: 40px 0 20px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <header class="site nav">
-    <div class="brand"><h1>GCEC Global Foundation</h1></div>
-    <nav class="links">
-      <a href="#courses">Courses</a>
-      <a href="#students">Life at GCEC</a>
-      <a href="#mentors">Mentors</a>
-      <a href="#about">About</a>
-      <a href="#awards">Awards</a>
-      <a class="apply" href="#">Apply</a>
-    </nav>
+  <header class="fade-in">
+    <div class="site nav">
+      <div class="brand">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQE6gF_ObCtUeA/company-logo_200_200/company-logo_200_200/0/1690029986181/gcecglobal_logo?e=2147483647&v=beta&t=MnyyDfPvBc-OHWbX2ReUDmind1fNyV9nInKtr5E5xmQ" alt="GCEC Global Logo">
+        <h1>GCEC Global Foundation</h1>
+      </div>
+      <nav class="links">
+        <a href="#courses">Courses</a>
+        <a href="#students">Life at GCEC</a>
+        <a href="#mentors">Mentors</a>
+        <a href="#about">About</a>
+        <a href="#awards">Awards</a>
+        <a href="#collab">Partners</a>
+        <a class="apply" href="https://www.gcecglobal.com/">Apply</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="site">
-    <section class="hero" id="hero">
+  <main class="site fade-in">
+    <section class="hero">
       <div class="hero-banner"></div>
       <div class="hero-copy">
         <h2>Transforming Education with Entrepreneurial Learning</h2>
-        <p class="muted">Practical programs guided by industry mentors.</p>
+        <p class="muted">Practical, industry-integrated programs (ACCA-UK, BBA, B.Com, MBA) led by startup and finance mentors.</p>
         <div class="kpis">
-          <div class="kpi"><strong>#AIR1</strong><br/><small>ACCA</small></div>
-          <div class="kpi"><strong>1000+</strong><br/><small>Students Mentored</small></div>
-          <div class="kpi"><strong>80+</strong><br/><small>Startups Incubated</small></div>
+          <div class="kpi"><div class="num">#AIR1</div><div class="muted">ACCA (last 4 yrs)</div></div>
+          <div class="kpi"><div class="num">1000+</div><div class="muted">Students Mentored</div></div>
+          <div class="kpi"><div class="num">80+</div><div class="muted">Startups Incubated</div></div>
         </div>
       </div>
     </section>
 
-    <section id="courses" class="section">
+    <section id="courses" class="section fade-in">
       <h2>Our Courses</h2>
       <div class="grid">
-        <div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToPKMOBwnl6YCUTDLmzQ93c7bWxy6gw32aaw&s"/><div class="pad"><h3>BBA - Entrepreneurship</h3></div></div>
-        <div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToPKMOBwnl6YCUTDLmzQ93c7bWxy6gw32aaw&s"/><div class="pad"><h3>BBA - Financial Markets</h3></div></div>
-        <div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToPKMOBwnl6YCUTDLmzQ93c7bWxy6gw32aaw&s"/><div class="pad"><h3>B.Com (Hons)</h3></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Course">
+          <div class="pad"><span class="pill">BBA</span><h3>BBA in Entrepreneurship</h3><p class="muted">Hands-on startup-focused learning.</p></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Course">
+          <div class="pad"><span class="pill">BBA</span><h3>BBA in Financial Markets</h3><p class="muted">CFA-L1 aligned curriculum.</p></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Course">
+          <div class="pad"><span class="pill">B.Com</span><h3>B.Com (Hons)</h3><p class="muted">Contemporary commerce curriculum.</p></div></div>
       </div>
     </section>
-    <!-- Add other sections similarly -->
+
+    <section id="students" class="section fade-in">
+      <h2>Life at GCEC</h2>
+      <div class="grid">
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Gallery"></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Gallery"></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Gallery"></div>
+      </div>
+    </section>
+
+    <section id="mentors" class="section fade-in">
+      <h2>Mentors & Guides</h2>
+      <div class="grid">
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Mentor"><div class="pad"><h3>Industry Experts</h3><p class="muted">Founders & finance mentors.</p></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Mentor"><div class="pad"><h3>Global Network</h3><p class="muted">Guest lectures worldwide.</p></div></div>
+        <div class="card"><img src="https://www.gcecglobal.com/wp-content/uploads/2021/12/GCEC-Global-Foundation-Logos-Final-02.png" alt="Mentor"><div class="pad"><h3>Personalised Mentoring</h3><p class="muted">1-on-1 project guidance.</p></div></div>
+      </div>
+    </section>
   </main>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.hero, .section, .card').forEach(el => observer.observe(el));
-  </script>
+  <footer class="fade-in">
+    <div class="site">
+      <div>&copy; 2025 GCEC Global Foundation</div>
+      <div class="muted" style="margin-top:6px; font-size:12px;">Maintained by GCEC Global</div>
+    </div>
+  </footer>
 </body>
 </html>
